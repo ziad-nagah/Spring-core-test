@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:data.properties"/>
+    <!--<bean id="iOCService" class="com.spring.core.IOCService"><constructor-arg ref ="studentService"> </constructor-arg><property name ="schoolService" ref ="studentService"></property> 
+    <property name ="name" value ="studentService"></property></bean> -->
+     <bean id="studentService" class="com.spring.core.StudentService" scope ="prototype" init-method = "openConnection" destroy-method="closeConnection"><property name ="name" value ="${app.name}"></property></bean>
+   <!--  <bean id="teacherService" class="com.spring.core.TeacherService"></bean> -->
+   
+</beans>
+
+
+
+
+
